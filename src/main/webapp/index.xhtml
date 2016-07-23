@@ -14,6 +14,7 @@
     We can receive information from bean by calling methods: #{helloWorld.getMessage()}<br/>
     Getters automatically defined: #{helloWorld.message} <br/>
     <h:form>
+        <h:outputLabel>Magic</h:outputLabel> <h:inputText value="#{helloWorld.magic}"></h:inputText>
         <h:commandButton value="Action" action="#{helloWorld.action}"></h:commandButton>
     </h:form>
 </h:body>
