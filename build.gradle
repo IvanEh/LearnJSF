@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+//'com.sun.faces:jsf-api:2.2.0'
+dependencies {
+    testCompile ([group: 'junit', name: 'junit', version: '4.11'])
+    compile ('javax.faces:javax.faces-api:2.2',
+             'com.sun.faces:jsf-impl:2.2.0')
+}
+
+def tomcatDir = 'build/tomcat'
+def webappName = 'ROOT'
+
+task deployTomcat(type: Copy, dependsOn: build) {
+    from 'build/libs/'
+    into tomcatDir + '/webapps'
+    include '*.war'
+    rename (".*\\.war", webappName + '.war')
+    file(tomcatDir + '/webapps/' + webappName).delete()
+}
+
