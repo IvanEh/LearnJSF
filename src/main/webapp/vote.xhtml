@@ -3,19 +3,22 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://xmlns.jcp.org/jsf/html http://xmlns.jcp.org/xml/ns/jsf/html"
      >
 
 <h:head>
-    <title>JSF Tutorial!</title>
+    <title>Vote!</title>
 </h:head>
 <h:body>
-    We can receive information from bean by calling methods: #{helloWorld.getMessage()}<br/>
-    Getters automatically defined: #{helloWorld.message} <br/>
+
     <h:form>
-        <h:outputLabel>Magic</h:outputLabel> <h:inputText value="#{helloWorld.magic}"></h:inputText>
-        <h:commandButton value="Action" action="#{helloWorld.action}"></h:commandButton>
+       Candidate: <h:selectOneMenu value="#{poll.vote}">
+                    <f:selectItems value="#{pollingService.candidatesSet2}"></f:selectItems>
+                  </h:selectOneMenu><br/>
+        <h:commandButton action="#{poll.processVote}" value="Vote"></h:commandButton>
     </h:form>
+
 </h:body>
 </html>
