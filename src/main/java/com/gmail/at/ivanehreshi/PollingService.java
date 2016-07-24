@@ -4,6 +4,7 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import java.util.*;
 
+// This bean is created once for the application lifetime
 @ManagedBean(name = "pollingService")
 @ApplicationScoped
 public class PollingService {
@@ -18,6 +19,7 @@ public class PollingService {
         return defaultCandidatesList;
     }
 
+    // appears that Set<String> can be used as selectOneMenu
     public Set<String> getCandidatesList() {
         return candidates.keySet();
     }
@@ -33,6 +35,7 @@ public class PollingService {
         candidates.put(candidate, val);
     }
 
+    // Dynamically compute the winner
     public Map.Entry<String, Integer> winner() {
         return candidates.entrySet().stream()
                   .reduce((max, curr) -> curr.getValue() > max.getValue() ? curr : max)

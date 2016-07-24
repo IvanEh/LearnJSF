@@ -11,6 +11,7 @@ import java.util.Random;
 // TODO: manual redirect vs ?redirect-view
 @ManagedBean
 public class Poll {
+    // JSF have a simple built-in dependency injection
     @ManagedProperty(value = "#{pollingService}")
     PollingService pollingService;
     String vote;
@@ -25,20 +26,24 @@ public class Poll {
         this.vote = vote;
     }
 
+    // faces-redirect changes the url
     public String processVote() {
         pollingService.vote(getVote());
         return "congrat?faces-redirect=true";
     }
 
+    // this method called by expression #{poll.randomCandidate()}
     public String randomCandidate() {
          List<String> candidates = pollingService.getDefaultCandidatesList();
          return candidates.get(new Random().nextInt(candidates.size()));
     }
 
+    // For DI
     public PollingService getPollingService() {
         return pollingService;
     }
 
+    // For DI
     public void setPollingService(PollingService pollingService) {
         this.pollingService = pollingService;
     }
