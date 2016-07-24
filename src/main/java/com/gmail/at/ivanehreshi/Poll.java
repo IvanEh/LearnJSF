@@ -31,20 +31,7 @@ public class Poll {
     public String processVote() {
         pollingService.vote(getVote());
 
-//      The code below do the same(probably) as the last return
-//      It provided for the sake of demonstrating direct request/response manipulation
-//      You need servlet-api dependency
-
-//        ExternalContext extCtx = FacesContext.getCurrentInstance().getExternalContext();
-//        HttpServletResponse response = (HttpServletResponse) extCtx.getResponse();
-//        try {
-//            response.sendRedirect("congrat.jsf");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//
-        return "congrat?faces-redirect=true";
+        return "404";
     }
 
     // this method called by expression #{poll.randomCandidate()}

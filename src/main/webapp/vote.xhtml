@@ -12,6 +12,9 @@
     <title>Vote!</title>
 </h:head>
 <h:body>
+    <!-- Note, this is note very efficient. Just for demonstration purpose -->
+    <!-- By the way, this is a sample of a conditional output -->
+    #{pollingService.winner().getValue() ne 0 ? pollingService.winner() : "The poll just started"}
 
     <h:form>
     <!-- Don't forget to properly set value attribute. This is necessary for sending form data -->
