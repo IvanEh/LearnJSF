@@ -11,7 +11,8 @@ repositories {
 dependencies {
     testCompile ([group: 'junit', name: 'junit', version: '4.11'])
     compile ('javax.faces:javax.faces-api:2.2',
-             'com.sun.faces:jsf-impl:2.2.0')
+             'com.sun.faces:jsf-impl:2.2.0',
+             'javax.servlet:servlet-api:2.5')
 }
 
 def tomcatDir = 'build/tomcat'
