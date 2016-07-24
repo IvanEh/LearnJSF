@@ -14,14 +14,21 @@
 <h:body>
     <!-- Note, this is note very efficient. Just for demonstration purpose -->
     <!-- By the way, this is a sample of a conditional output -->
-    #{pollingService.winner().getValue() ne 0 ? pollingService.winner() : "The poll just started"}
-
+    #{pollingService.winner().getValue() ne 0 ? pollingService.winner() : "The poll just started"}<br/>
+    Dynamic text: <span style="#{userPrefs.dynTextCss}">TEXT</span>
     <h:form>
     <!-- Don't forget to properly set value attribute. This is necessary for sending form data -->
        Candidate: <h:selectOneMenu value="#{poll.vote}">
                     <f:selectItems value="#{pollingService.candidatesList}"></f:selectItems>
                   </h:selectOneMenu><br/>
-        <h:commandButton action="#{poll.processVote}" value="Vote"></h:commandButton>
+        <h:commandButton action="{poll.processVote}"
+                 value="Vote. Will cause error"></h:commandButton>
+    </h:form>
+
+    <h:form>
+        <h:commandButton value="Change dynamic text"
+                         actionListener="#{userPrefs.changeDynTextCss}"
+                         immediate="true"></h:commandButton>
     </h:form>
 
 </h:body>
