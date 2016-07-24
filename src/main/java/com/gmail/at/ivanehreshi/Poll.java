@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Random;
 
 
-// TODO: what a heck with polling service
 // TODO: comments as a separate commit
 // TODO: summary: scopes, @ManagedProperty, h:selectOneMenu, f:selectItems
 // TODO: manual redirect vs ?redirect-view

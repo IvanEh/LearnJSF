@@ -18,12 +18,8 @@ public class PollingService {
         return defaultCandidatesList;
     }
 
-    public Set<String> getCandidatesSet() {
+    public Set<String> getCandidatesList() {
         return candidates.keySet();
-    }
-
-    public List<String> getCandidatesSet2() {
-        return defaultCandidatesList;
     }
 
     public void vote(String candidate) {
