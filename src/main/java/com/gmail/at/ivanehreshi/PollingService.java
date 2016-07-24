@@ -27,7 +27,7 @@ public class PollingService {
     public void vote(String candidate) {
         Integer val = candidates.get(candidate);
         if(val == null) {
-            val = 1;
+            val = 0;
         } else {
             val++;
         }
