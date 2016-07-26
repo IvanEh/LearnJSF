@@ -12,6 +12,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
+// - new branch
+// - simple
+// - ajax with action and without
+// - leave a todo: simplify
 @ManagedBean
 public class Poll {
     // JSF have a simple built-in dependency injection
@@ -20,8 +24,6 @@ public class Poll {
     String vote;
 
     public String getVote() {
-        if(vote == null)
-            return randomCandidate();
         return vote;
     }
 
@@ -29,11 +31,13 @@ public class Poll {
         this.vote = vote;
     }
 
-    // faces-redirect changes the url
     public String processVote() {
         pollingService.vote(getVote());
 
-        return "404";
+    // for ajax application is not needed but null is
+    // is preferred because it will point to the same page even without
+    // ajax
+        return null;
     }
 
     // this method called by expression #{poll.randomCandidate()}
