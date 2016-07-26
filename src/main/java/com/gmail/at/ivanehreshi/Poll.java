@@ -46,11 +46,6 @@ public class Poll {
          return candidates.get(new Random().nextInt(candidates.size()));
     }
 
-    public void actionListener(ActionEvent e) {
-        System.out.println(getVote());
-        setVote("Hilarious");
-    }
-
     // For DI
     public PollingService getPollingService() {
         return pollingService;
