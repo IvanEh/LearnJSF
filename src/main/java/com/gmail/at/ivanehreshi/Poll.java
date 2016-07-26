@@ -1,5 +1,8 @@
 package com.gmail.at.ivanehreshi;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.context.ExternalContext;
@@ -12,14 +15,12 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
-// - new branch
-// - simple
-// - ajax with action and without
-// - leave a todo: simplify
-@ManagedBean
+// This example is working but not as desired. Currently only spring DI works
+// for further investigations:
+// http://www.tutorialspoint.com/jsf/jsf_spring_integration.htm
 public class Poll {
     // JSF have a simple built-in dependency injection
-    @ManagedProperty(value = "#{pollingService}")
+    @Autowired
     PollingService pollingService;
     String vote;
 

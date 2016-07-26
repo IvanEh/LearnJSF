@@ -5,6 +5,29 @@
         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
         version="3.1">
+    <!-- Spring config -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/web-context.xml</param-value>
+    </context-param>
+
+    <!--<context-param>-->
+        <!--<param-name>contextClass</param-name>-->
+        <!--<param-value>-->
+            <!--org.springframework.web.context.support.AnnotationConfigWebApplicationContext-->
+        <!--</param-value>-->
+    <!--</context-param>-->
+
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+
+
     <!-- The bare minimum needed for JSF 2.2 is a servlet 2.5 or later
          declaration (this uses 3.0) and the mapping for the FacesServlet.
          Setting PROJECT_STAGE to Development is highly recommended

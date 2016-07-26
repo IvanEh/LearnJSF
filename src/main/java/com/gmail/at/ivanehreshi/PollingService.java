@@ -1,12 +1,16 @@
 package com.gmail.at.ivanehreshi;
 
+import org.springframework.stereotype.Component;
+
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import java.util.*;
 
-// This bean is created once for the application lifetime
-@ManagedBean(name = "pollingService")
-@ApplicationScoped
+// @Component annotation is a must. JSF annotation can be omitted
+//
+@Component
+//@ManagedBean(name="pollingServiceBean", eager=true)
+//@ApplicationScoped
 public class PollingService {
     Map<String, Integer> candidates = new HashMap<>();
     final List<String> defaultCandidatesList = Arrays.asList("Donald Trump", "Hilary Clinton");
